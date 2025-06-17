@@ -10,13 +10,13 @@ import uvicorn
 app = FastAPI()
 
 # Mount static files directory
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Set up Jinja2 templates
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(directory="templates")
 
 # Load the model and tokenizer
-model_path = "app/t5-small-hungarian-translator"
+model_path = "t5-small-hungarian-translator"
 loaded_model = T5ForConditionalGeneration.from_pretrained(model_path)
 loaded_tokenizer = AutoTokenizer.from_pretrained(model_path)
 
